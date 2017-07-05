@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16 Aug, 2015 3:28:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.htc.hibernate.pojo.HolonObject" table="holon_object" catalog="group1_htc" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="energyState" class="com.htc.hibernate.pojo.EnergyState" fetch="select" lazy="false">
+            <column name="supply_state" />
+        </many-to-one>
+        <many-to-one name="holonObjectType" class="com.htc.hibernate.pojo.HolonObjectType" fetch="select" lazy="false">
+            <column name="holon_object_type" />
+        </many-to-one>
+        <many-to-one name="holon" class="com.htc.hibernate.pojo.Holon" fetch="select" lazy="false">
+            <column name="holon" />
+        </many-to-one>
+        <many-to-one name="latLngByNeLocation" class="com.htc.hibernate.pojo.LatLng" fetch="select" lazy="false">
+            <column name="ne_location" />
+        </many-to-one>
+        <many-to-one name="latLngBySwLocation" class="com.htc.hibernate.pojo.LatLng" fetch="select" lazy="false">
+            <column name="sw_location" />
+        </many-to-one>
+        <property name="lineConnectedState" type="java.lang.Boolean">
+            <column name="line_connected_state" />
+        </property>
+        <property name="consumption" type="java.lang.Integer">
+            <column name="consumption" />
+        </property>
+        <property name="canCommunicate" type="java.lang.Boolean">
+            <column name="can_communicate" />
+        </property>
+        <property name="createdFactory" type="java.lang.Boolean">
+            <column name="created_factory" />
+        </property>
+        <property name="flexibility" type="java.lang.Integer">
+            <column name="flexibility" />
+        </property>
+        <property name="isCoordinator" type="java.lang.Boolean">
+            <column name="is_coordinator" />
+        </property>
+        <property name="coordinatorCompetency" type="big_decimal">
+            <column name="coordinator_competency" precision="2" scale="1"/>
+        </property>
+        <property name="trustValue" type="big_decimal">
+            <column name="trust_value" precision="2" scale="1"/>
+        </property>
+        <set name="holonElements" table="holon_element" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="holon_object" />
+            </key>
+            <one-to-many class="com.htc.hibernate.pojo.HolonElement" />
+        </set>
+        <set name="powerLines" table="power_line" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="holon_object" />
+            </key>
+            <one-to-many class="com.htc.hibernate.pojo.PowerLine" />
+        </set>
+        <set name="powerSources" table="power_source" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="holon_coordinator" />
+            </key>
+            <one-to-many class="com.htc.hibernate.pojo.PowerSource" />
+        </set>
+        <set name="supplierProducers" table="supplier" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="holon_object_producer" />
+            </key>
+            <one-to-many class="com.htc.hibernate.pojo.Supplier" />
+        </set>
+        <set name="supplierConsumers" table="supplier" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="holon_object_consumer" />
+            </key>
+            <one-to-many class="com.htc.hibernate.pojo.Supplier" />
+        </set>
+    </class>
+</hibernate-mapping>

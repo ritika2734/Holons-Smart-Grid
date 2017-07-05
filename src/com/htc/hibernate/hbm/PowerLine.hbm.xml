@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16 Aug, 2015 3:28:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.htc.hibernate.pojo.PowerLine" table="power_line" catalog="group1_htc" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="holonObject" class="com.htc.hibernate.pojo.HolonObject" fetch="select" lazy="false">
+            <column name="holon_object" />
+        </many-to-one>
+        <many-to-one name="latLngBySource" class="com.htc.hibernate.pojo.LatLng" fetch="select" lazy="false">
+            <column name="source" />
+        </many-to-one>
+        <many-to-one name="latLngByDestination" class="com.htc.hibernate.pojo.LatLng" fetch="select" lazy="false">
+            <column name="destination" />
+        </many-to-one>
+        <many-to-one name="powerSource" class="com.htc.hibernate.pojo.PowerSource" fetch="select" lazy="false">
+            <column name="power_source" />
+        </many-to-one>
+        <many-to-one name="disaster" class="com.htc.hibernate.pojo.Disaster" fetch="select" lazy="false">
+            <column name="disaster" />
+        </many-to-one>
+        <property name="type" type="string">
+            <column name="type" not-null="true" />
+        </property>
+        <property name="currentCapacity" type="int">
+            <column name="current_capacity" not-null="true" />
+        </property>
+        <property name="maximumCapacity" type="int">
+            <column name="maximum_capacity" not-null="true" />
+        </property>
+        <property name="isConnected" type="boolean">
+            <column name="isConnected" not-null="true" />
+        </property>
+        <property name="reasonDown" type="string">
+            <column name="reason_down" />
+        </property>
+        <set name="powerSwitchesForPowerLineA" table="power_switch" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="power_line_a" />
+            </key>
+            <one-to-many class="com.htc.hibernate.pojo.PowerSwitch" />
+        </set>
+        <set name="powerSwitchesForPowerLineB" table="power_switch" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="power_line_b" />
+            </key>
+            <one-to-many class="com.htc.hibernate.pojo.PowerSwitch" />
+        </set>
+    </class>
+</hibernate-mapping>

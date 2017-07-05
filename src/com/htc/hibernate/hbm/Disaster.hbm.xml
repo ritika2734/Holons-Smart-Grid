@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.htc.hibernate.pojo.Disaster" table="disaster" catalog="group1_htc" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="radius" type="double">
+            <column name="radius" precision="22" scale="0" not-null="true" />
+        </property>
+        
+        <many-to-one name="center" class="com.htc.hibernate.pojo.LatLng" fetch="select" lazy="false">
+            <column name="center" not-null="true" />
+        </many-to-one>
+        <set name="powerLines" table="power_line" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="disaster" not-null="true" />
+            </key>
+            <one-to-many class="com.htc.hibernate.pojo.PowerLine" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16 Aug, 2015 3:28:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.htc.hibernate.pojo.LatLng" table="lat_lng" catalog="group1_htc" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="latitude" type="double">
+            <column name="latitude" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="longitude" type="double">
+            <column name="longitude" precision="22" scale="0" not-null="true" />
+        </property>
+        <set name="holonObjectsForNeLocation" table="holon_object" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ne_location" />
+            </key>
+            <one-to-many class="com.htc.hibernate.pojo.HolonObject" />
+        </set>
+        <set name="powerSources" table="power_source" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="centre" />
+            </key>
+            <one-to-many class="com.htc.hibernate.pojo.PowerSource" />
+        </set>
+        <set name="powerLinesForSource" table="power_line" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="source" />
+            </key>
+            <one-to-many class="com.htc.hibernate.pojo.PowerLine" />
+        </set>
+        <set name="holonObjectsForSwLocation" table="holon_object" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="sw_location" />
+            </key>
+            <one-to-many class="com.htc.hibernate.pojo.HolonObject" />
+        </set>
+        <set name="powerLinesForDestination" table="power_line" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="destination" />
+            </key>
+            <one-to-many class="com.htc.hibernate.pojo.PowerLine" />
+        </set>
+        <set name="powerSwitches" table="power_switch" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="location" not-null="true" />
+            </key>
+            <one-to-many class="com.htc.hibernate.pojo.PowerSwitch" />
+        </set>
+        <set name="disasters" table="disaster" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="center" not-null="true" />
+            </key>
+            <one-to-many class="com.htc.hibernate.pojo.Disaster" />
+        </set>
+    </class>
+</hibernate-mapping>

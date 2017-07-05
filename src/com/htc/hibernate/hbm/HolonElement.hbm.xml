@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16 Aug, 2015 3:28:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.htc.hibernate.pojo.HolonElement" table="holon_element" catalog="group1_htc" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="holonElementState" class="com.htc.hibernate.pojo.HolonElementState" fetch="select" lazy="false">
+            <column name="holon_element_state" />
+        </many-to-one>
+        <many-to-one name="holonElementType" class="com.htc.hibernate.pojo.HolonElementType" fetch="select" lazy="false">
+            <column name="holon_element_type" />
+        </many-to-one>
+        <many-to-one name="holonObject" class="com.htc.hibernate.pojo.HolonObject" fetch="select" lazy="false">
+            <column name="holon_object" />
+        </many-to-one>
+        <property name="currentCapacity" type="java.lang.Integer">
+            <column name="current_capacity" />
+        </property>
+        <property name="history" type="binary">
+            <column name="history" />
+        </property>
+    </class>
+</hibernate-mapping>

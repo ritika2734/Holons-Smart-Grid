@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16 Aug, 2015 3:28:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.htc.hibernate.pojo.HolonElementState" table="holon_element_state" catalog="group1_htc" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" />
+        </property>
+        <set name="holonElements" table="holon_element" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="holon_element_state" />
+            </key>
+            <one-to-many class="com.htc.hibernate.pojo.HolonElement" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16 Aug, 2015 3:28:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.htc.hibernate.pojo.HolonObjectType" table="holon_object_type" catalog="group1_htc" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" />
+        </property>
+        <property name="priority" type="java.lang.Integer">
+            <column name="priority" />
+        </property>
+        <set name="holonObjects" table="holon_object" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="holon_object_type" />
+            </key>
+            <one-to-many class="com.htc.hibernate.pojo.HolonObject" />
+        </set>
+    </class>
+</hibernate-mapping>

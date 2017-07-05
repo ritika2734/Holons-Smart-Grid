@@ -1,0 +1,525 @@
+#menu {
+	position: fixed;
+	background-color: #222;
+	height: 100%;
+	z-index: 10;
+	width: 280px;
+	color: #bbb;
+	top: 0;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+	opacity: 1;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+#menu ul {
+	list-style: none;
+	margin-top: 0;
+	padding: 0
+}
+
+#menu ul li {
+	border-bottom: 1px solid #2a2a2a;
+}
+
+#menu>ul>li>a {
+	border-left: 4px solid #222;
+}
+
+#menu ul li a {
+	color: inherit;
+	font-size: 16px;
+	display: block;
+	padding: 8px 0 8px 7px;
+	text-decoration: none;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+	font-weight: 600;
+}
+
+#menu ul a i {
+	margin-right: 10px;
+	font-size: 18px;
+	margin-top: 3px;
+	width: 20px;
+}
+
+#menu ul a i[class*='fa-caret'] {
+	float: right;
+}
+
+#menu ul a:hover, #menu ul a.active {
+	background-color: #111;
+	border-left-color: #FFCC33;
+	color: #FFCC33;
+}
+
+#menu ul a:hover i:first-child {
+	color: #FFCC33;
+}
+
+/* Submenu */
+#menu ul li a.active+ul {
+	display: block
+}
+
+#menu ul li ul {
+	margin-top: 0;
+	display: none;
+}
+
+#menu ul li ul li {
+	border-bottom: none;
+}
+
+#menu ul li ul li a {
+	padding-left: 30px;
+}
+
+#menu ul li ul li a:hover {
+	background-color: #1A1A1A;
+}
+
+/* /Submenu */
+
+/* Cuando este a la Izq, para esconderlo posicionarlo a la Izq a -width */
+.left {
+	left: -280px;
+}
+
+.show {
+	left: 0;
+}
+
+#showmenu {
+	margin-left: 100%;
+	position: absolute;
+	top: 0;
+	padding: 6px 10px 7px 10px;
+	font-size: 1.3em;
+	color: #2a2a2a;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+/* #container { padding: 50px; } */
+#container {
+	position: relative;
+	width: 100%;
+	padding-bottom: 47%;
+}
+
+#googleMap {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #000000;
+}
+
+#addHolonObject:hover, #clear:hover {
+	cursor: pointer;
+	cursor: hand;
+}
+
+#pageone {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#holonObjectDetail {
+	display: none;
+	position: absolute;
+	bottom: 25%;
+	left: 50%;
+	width: auto;
+	height: auto;
+	margin: -100px 0 0 -250px;
+	background: #E2E4DD;
+	border: 5px solid rgb(128, 128, 128);
+}
+
+
+#powerObjectDetail
+	{
+	display: none;
+	position: absolute;
+	bottom: 25%;
+	left: 50%;
+	width: 30%;
+	height: auto;
+	margin: -100px 0 0 -250px;
+	background: #E2E4DD;
+	border: 5px solid rgb(128, 128, 128);
+}
+
+#lineObjectDetail {
+	display: none;
+	position: absolute;
+	bottom: 25%;
+	left: 50%;
+	width: auto;
+	height: auto;
+	margin: -100px 0 0 -250px;
+	background: #E2E4DD;
+	border: 5px solid rgb(128, 128, 128);
+}
+
+#powerLineObjectTable tr {
+	/* height: 50px; */
+	height: auto;
+}
+
+
+#elementInfo {
+	display: none;
+	position: absolute;
+	bottom: 25%;
+	left: 50%;
+	width: 45%;
+	height: auto;
+	margin: -100px 0 0 -250px;
+	background: #E2E4DD;
+	border: 5px solid rgb(128, 128, 128);
+	z-index: 1;
+}
+
+#consumptionGraphBody {
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: auto;
+	height: auto;
+	margin: -100px 0 0 -250px;
+	background: #E2E4DD;
+	border: 5px solid rgb(128, 128, 128);
+	z-index: 1;
+}
+
+#supplierDetailsBody {
+	display: none;
+	position: absolute;
+	bottom: 25%;
+	left: 40%;
+	right: 1%;
+	width: auto;
+	height: auto;
+	max-width: 70%;
+	max-height: 70%;
+	margin: -100px 0 0 -250px;
+	background: #E2E4DD;
+	border: 5px solid rgb(128, 128, 128);
+	z-index: 1;
+}
+#producerInboxId {
+	display: none;
+	position: absolute;
+	bottom: 25%;
+	left: 40%;
+	right: 1%;
+	width: auto;
+	height: auto;
+	max-width: 70%;
+	max-height: 70%;
+	margin: -100px 0 0 -250px;
+	background: #E2E4DD;
+	border: 5px solid rgb(128, 128, 128);
+	z-index: 1;
+}
+#distributeEnergyAmongHolonObjectsDiv {
+	display: none;
+	position: absolute;
+	bottom: 25%;
+	left: 40%;
+	right: 1%;
+	width: auto;
+	height: auto;
+	max-width: 80%;
+	max-height: 70%;
+	margin: -100px 0 0 -250px;
+	background: #E2E4DD;
+	border: 5px solid rgb(128, 128, 128);
+	z-index: 1;
+	overflow: scroll;
+}
+
+#historyDistributeEnergyAmongHolonObjectsDiv {
+	display: none;
+	position: absolute;
+	bottom: 18%;
+	left: 40%;
+	right: 1%;
+	width: auto;
+	height: auto;
+	max-width: 80%;
+	max-height: 80%;
+	margin: -100px 0 0 -250px;
+	background: #E2E4DD;
+	border: 5px solid rgb(128, 128, 128);
+	z-index: 1;
+	overflow: scroll;
+}
+#dynamicHolonDiv {
+	display: none;
+	position: absolute;
+	top: 22%;
+	left: 75%;
+	right: 1%;
+	width: auto;
+	height: auto;
+	max-width: 40%;
+	max-height: 50%;
+	margin: -100px 0 0 -250px;
+	background: #EAF4FF;
+	border: 5px solid rgb(128, 128, 128);
+	z-index: 1;
+	overflow: scroll;
+}
+
+#closeDynamicHolonDiv {
+	position: absolute;
+	top: 0%;
+	right: 0%;
+}
+
+/* .button {
+	background-color:#E2E4DD;
+	color: #000000;
+} */
+#divHolonElementsDetail {
+	display: none;
+	position: absolute;
+	bottom: 25%;
+	left: 42%;
+	width: auto;
+	height: auto;
+	max-height: 70%;
+	max-width: 70%;
+	margin: -90px 0 0 -230px;
+	background: #E2E4DD;
+	border: 3px solid rgb(128, 128, 128);
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	overflow: scroll;
+}
+
+#closeElementList {
+	position: absolute;
+	top: 0%;
+	right: 0%;
+}
+
+#divHolonElementsDetail legend {
+	color: #000000;
+	font: bold;
+}
+
+#divHolonElementsDetail span {
+	float: right;
+}
+
+#divHolonElementsDetail td, #divHolonElementsDetail th {
+	text-align: center;
+	font-size: 0.9em;
+	border: 1px solid #98bf21;
+	padding: 3px 7px 2px 7px;
+}
+
+#divHolonElementsDetail th {
+	font-size: 0.95em;
+	text-align: center;
+	padding-top: 3px;
+	padding-bottom: 2px;
+	background-color: #BBBDB5;
+	color: #ffffff;
+}
+
+#divHolonElementsDetail tr.alt td {
+	color: #000000;
+	background-color: #EAF2D3;
+}
+
+<!--
+new formattng --><!--table -->
+.table {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	border: 1px solid #EAF4FF;
+	-moz-border-radius-bottomleft: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	-moz-border-radius-bottomright: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	-moz-border-radius-topright: 0px;
+	-webkit-border-top-right-radius: 0px;
+	border-top-right-radius: 0px;
+	-moz-border-radius-topleft: 0px;
+	-webkit-border-top-left-radius: 0px;
+	border-top-left-radius: 0px;
+}
+
+.table table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+.table table tr {
+	width: 100%;
+}
+/* .table table tr td {
+	width: 50%;
+}
+ */
+.table tr:last-child td:last-child {
+	-moz-border-radius-bottomright: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+.table table tr:first-child td:first-child {
+	-moz-border-radius-topleft: 0px;
+	-webkit-border-top-left-radius: 0px;
+	border-top-left-radius: 0px;
+}
+
+.table table tr:first-child td:last-child {
+	-moz-border-radius-topright: 0px;
+	-webkit-border-top-right-radius: 0px;
+	border-top-right-radius: 0px;
+}
+
+.table tr:last-child td:first-child {
+	-moz-border-radius-bottomleft: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+
+.table tr:hover td {
+	
+}
+
+.table tr:nth-child(odd) {
+	background-color: #EAF4FF;
+}
+
+.table tr:nth-child(even) {
+	background-color: #ffffff;
+}
+
+.table td {
+	vertical-align: middle;
+	border: 1px solid #EAF4FF;
+	border-width: 0px 1px 1px 0px;
+	text-align: left;
+	padding: 7px;
+	font-size: 12px;
+	font-family: Arial;
+	font-weight: bold;
+	color: #000000;
+}
+
+.table tr:last-child td {
+	border-width: 0px 1px 0px 0px;
+}
+
+.table tr td:last-child {
+	border-width: 0px 0px 1px 0px;
+}
+
+.table tr:last-child td:last-child {
+	border-width: 0px 0px 0px 0px;
+}
+
+.table tr:first-child td {
+	background: -o-linear-gradient(bottom, #EAF4FF 5%, #EAF4FF 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #EAF4FF
+		), color-stop(1, #EAF4FF));
+	background: -moz-linear-gradient(center top, #EAF4FF 5%, #EAF4FF 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#EAF4FF",
+		endColorstr="#EAF4FF");
+	background: -o-linear-gradient(top, #EAF4FF, EAF4FF);
+	background-color: #EAF4FF;
+	border: 0px solid #EAF4FF;
+	text-align: center;
+	border-width: 0px 0px 1px 1px;
+	font-size: 14px;
+	font-family: Arial;
+	font-weight: bold;
+	color: #000000;
+}
+
+.table tr:first-child:hover td {
+	background: -o-linear-gradient(bottom, #EAF4FF 5%, #EAF4FF 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #EAF4FF
+		), color-stop(1, #EAF4FF));
+	background: -moz-linear-gradient(center top, #EAF4FF 5%, #EAF4FF 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#EAF4FF",
+		endColorstr="#EAF4FF");
+	background: -o-linear-gradient(top, #EAF4FF, EAF4FF);
+	background-color: #EAF4FF;
+}
+
+.table tr:first-child td:first-child {
+	border-width: 0px 0px 1px 0px;
+}
+
+.table tr:first-child td:last-child {
+	border-width: 0px 0px 1px 1px;
+}
+
+<!-- button -->
+.button {
+	background: #ffaa56;
+	background-image: -webkit-linear-gradient(top, #ffaa56, #ffaa56);
+	background-image: -moz-linear-gradient(top, #ffaa56, #ffaa56);
+	background-image: -ms-linear-gradient(top, #ffaa56, #ffaa56);
+	background-image: -o-linear-gradient(top, #ffaa56, #ffaa56);
+	background-image: linear-gradient(to bottom, #ffaa56, #ffaa56);
+	-webkit-border-radius: 28;
+	-moz-border-radius: 28;
+	border-radius: 28px;
+	-webkit-box-shadow: 0px 1px 3px #666666;
+	-moz-box-shadow: 0px 1px 3px #666666;
+	box-shadow: 0px 1px 3px #666666;
+	font-family: Arial;
+	color: #000000;
+	font-size: 20px;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;
+}
+
+.button:hover {
+	background: #EAF4FF;
+	background-image: -webkit-linear-gradient(top, #EAF4FF, #EAF4FF);
+	background-image: -moz-linear-gradient(top, #EAF4FF, #EAF4FF);
+	background-image: -ms-linear-gradient(top, #EAF4FF, #EAF4FF);
+	background-image: -o-linear-gradient(top, #EAF4FF, #EAF4FF);
+	background-image: linear-gradient(to bottom, #EAF4FF, #EAF4FF);
+	text-decoration: none;
+}
+
+.sp span {
+	display: inline-block;
+	height: 25px;
+	width: 25px;
+}
+.spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px; /* half width of the spinner gif */
+    margin-top: -50px; /* half height of the spinner gif */
+    text-align:center;
+    z-index:99;
+    overflow: auto;
+    width: 100px; /* width of the spinner gif */
+    height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */
+}

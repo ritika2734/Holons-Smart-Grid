@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.htc.hibernate.pojo.Supplier" table="supplier" catalog="group1_htc" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="powerSource" class="com.htc.hibernate.pojo.PowerSource" fetch="select" lazy="false">
+            <column name="power_source" />
+        </many-to-one>
+        <many-to-one name="holonObjectProducer" class="com.htc.hibernate.pojo.HolonObject" fetch="select" lazy="false">
+            <column name="holon_object_producer" />
+        </many-to-one>
+        <many-to-one name="holonObjectConsumer" class="com.htc.hibernate.pojo.HolonObject" fetch="select" lazy="false">
+            <column name="holon_object_consumer" />
+        </many-to-one>
+        <property name="powerRequested" type="int">
+            <column name="power_requested" not-null="true" />
+        </property>
+        <property name="powerGranted" type="int">
+            <column name="power_granted" not-null="true" />
+        </property>
+        <property name="messageStatus" type="string">
+            <column name="message_status" length="255" />
+        </property>
+        <property name="requestId" type="int">
+            <column name="request_id" not-null="true" />
+        </property>
+        <property name="communicationMode" type="string">
+            <column name="communication_mode" length="255" />
+        </property>
+    </class>
+</hibernate-mapping>

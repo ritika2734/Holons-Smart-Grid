@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16 Aug, 2015 3:28:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.htc.hibernate.pojo.PowerSource" table="power_source" catalog="group1_htc" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="holonCoordinator" class="com.htc.hibernate.pojo.HolonObject" fetch="select" lazy="false">
+            <column name="holon_coordinator" />
+        </many-to-one>
+        <many-to-one name="center" class="com.htc.hibernate.pojo.LatLng" fetch="select" lazy="false">
+            <column name="center" />
+        </many-to-one>
+        <property name="minProduction" type="java.lang.Integer">
+            <column name="min_production" />
+        </property>
+        <property name="maxProduction" type="java.lang.Integer">
+            <column name="max_production" />
+        </property>
+        <property name="currentProduction" type="java.lang.Integer">
+            <column name="current_production" />
+        </property>
+        <property name="flexibility" type="java.lang.Integer">
+            <column name="flexibility" />
+        </property>
+        <property name="radius" type="java.lang.Double">
+            <column name="radius" precision="22" scale="0" />
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="status" />
+        </property>
+        <set name="powerLines" table="power_line" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="power_source" />
+            </key>
+            <one-to-many class="com.htc.hibernate.pojo.PowerLine" />
+        </set>
+        <set name="suppliers" table="supplier" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="power_source" />
+            </key>
+            <one-to-many class="com.htc.hibernate.pojo.Supplier" />
+        </set>
+    </class>
+</hibernate-mapping>
